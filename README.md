@@ -8,6 +8,6 @@ The formal range of validity of this algorithm is 1 January 2020 to 31 December 
 - the mean deviations of those errors are 10.61 and 7.28 seconds of arc;
 - all vector estimates are enclosed in a circle around the actual true position of the sun -as determined by the Multiyear Interactive Computer Almanac (MICA)- of less than 30 second of arcs.
 
-Currently, this repository provides implementations of the updated PSA algorithm in C++ and Mathematica. They can be found in the "src" subfolders of the folders titled respectively "c++" and "mathematica". These subfolders, provide also a basic example of how to run the algorithm and test if it is working properly and providing the expected accurate sun position estimates.
+Currently, this repository provides an implementation of the updated PSA algorithm in C++. This implementation can be found in the "src" subfolder of the folders titled "c++". These subfolder, provide also a basic example of how to run the algorithm and test if it is working properly and it is providing the expected accurate sun position estimates.
 
 More information about the updated PSA sun position algorithm can be found in the wiki associated to this repository.
