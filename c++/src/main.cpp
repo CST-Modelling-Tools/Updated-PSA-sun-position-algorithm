@@ -22,7 +22,7 @@ int main()
     std::cout << "Reading MICA Data!" << std::endl;
 
     //Assume a specific MICA Data input file and location
-    std::string input_file = "../test_data/MICA_reference_data.csv";
+    std::string input_file = "../../../test_data/MICA_reference_data.csv";
 
     // Create a vector of <cLocation, cTme, cSunCoordinates> tuples to store the result of reading the MICA data
     std::vector<std::tuple<cLocation, cTime, cSunCoordinates>> MICA_data;
