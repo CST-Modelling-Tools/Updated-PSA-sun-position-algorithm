@@ -1,0 +1,20 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: PSA+ updated PSA sun position algorithm.
+message: 'If you use this software, please cite it as below.'
+type: software
+authors:
+  - given-names: Manuel
+    family-names: Blanco
+    email: m.blanco@cyi.ac.cy
+    orcid: 'https://orcid.org/0000-0003-2800-9886'
+  - given-names: Kypros
+    family-names: Milidonis
+    email: k.milidonis@cyi.ac.cy
+    orcid: 'https://orcid.org/0000-0001-7536-8174'
+  - given-names: Aristides
+    family-names: Bonanos
+    email: abonanos@gmail.com
+    orcid: 'https://orcid.org/0000-0003-2145-4354'
