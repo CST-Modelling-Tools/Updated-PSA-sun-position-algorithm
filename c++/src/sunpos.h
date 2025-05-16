@@ -1,5 +1,3 @@
-// This file is available in electronic form at https://scmt.cyi.ac.cy/confluence/display/SPA/Update+of+the+PSA+Sun+Position+Algorithm
-
 #ifndef __SUNPOS_H
 #define __SUNPOS_H
 
@@ -31,6 +29,8 @@ struct cSunCoordinates
 {
     double dZenithAngle;
     double dAzimuth;
+    double dDeclination;
+    double dBoundedHourAngle;
 };
 
 void sunpos(cTime udtTime, cLocation udtLocation, cSunCoordinates *udtSunCoordinates);

@@ -1,5 +1,3 @@
-// This file is available in electronic form at https://scmt.cyi.ac.cy/confluence/display/SPA/Update+of+the+PSA+Sun+Position+Algorithm
-
 #include "sunpos.h"
 #include <math.h>
 
@@ -64,6 +62,7 @@ void sunpos(cTime udtTime,cLocation udtLocation, cSunCoordinates *udtSunCoordina
         dRightAscension = atan2( dY,dX );
         if( dRightAscension < 0.0 ) dRightAscension = dRightAscension + twopi;
         dDeclination = asin( sin( dEclipticObliquity )*dSin_EclipticLongitude );
+        udtSunCoordinates->dDeclination = dDeclination;
     }
 
     // Calculate local coordinates ( azimuth and zenith angle ) in degrees
@@ -74,6 +73,7 @@ void sunpos(cTime udtTime,cLocation udtLocation, cSunCoordinates *udtSunCoordina
         double dHourAngle;
         double dCos_Latitude;
         double dSin_Latitude;
+        double dSin_HourAngle;
         double dCos_HourAngle;
         double dParallax;
         dGreenwichMeanSiderealTime = 6.697096103 +
@@ -82,11 +82,13 @@ void sunpos(cTime udtTime,cLocation udtLocation, cSunCoordinates *udtSunCoordina
 
         dLocalMeanSiderealTime = (dGreenwichMeanSiderealTime*15
             + udtLocation.dLongitude)*rad;
-        dHourAngle = dLocalMeanSiderealTime - dRightAscension;
+        dHourAngle = dLocalMeanSiderealTime - dRightAscension;         
         dLatitudeInRadians = udtLocation.dLatitude*rad;
         dCos_Latitude = cos( dLatitudeInRadians );
         dSin_Latitude = sin( dLatitudeInRadians );
+        dSin_HourAngle = sin( dHourAngle );
         dCos_HourAngle= cos( dHourAngle );
+        udtSunCoordinates->dBoundedHourAngle = atan2(dSin_HourAngle, dCos_HourAngle);  
         udtSunCoordinates->dZenithAngle = (acos( dCos_Latitude*dCos_HourAngle
             *cos(dDeclination) + sin( dDeclination )*dSin_Latitude));
         dY = -sin( dHourAngle );
@@ -94,11 +96,11 @@ void sunpos(cTime udtTime,cLocation udtLocation, cSunCoordinates *udtSunCoordina
         udtSunCoordinates->dAzimuth = atan2( dY, dX );
         if ( udtSunCoordinates->dAzimuth < 0.0 )
             udtSunCoordinates->dAzimuth = udtSunCoordinates->dAzimuth + twopi;
-        udtSunCoordinates->dAzimuth = udtSunCoordinates->dAzimuth/rad;
+        udtSunCoordinates->dAzimuth = udtSunCoordinates->dAzimuth;
         // Parallax Correction
         dParallax=(dEarthMeanRadius/dAstronomicalUnit)
             *sin(udtSunCoordinates->dZenithAngle);
         udtSunCoordinates->dZenithAngle=(udtSunCoordinates->dZenithAngle
-            + dParallax)/rad;
+            + dParallax);      
     }
 }

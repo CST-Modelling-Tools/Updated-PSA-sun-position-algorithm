@@ -53,11 +53,11 @@ int main()
                   << "minute: " << time.dMinutes << ", \n"
                   << "seconds: " << time.dSeconds << ", \n"
                   << "Zenith Angle MICA (deg): " << sunCoordinates_MICA.dZenithAngle << ", \n"
-                  << "Zenith Angle PSA+ (deg): " << sunCoordinates_sunpos.dZenithAngle << ", \n"
+                  << "Zenith Angle PSA+ (deg): " << sunCoordinates_sunpos.dZenithAngle/rad << ", \n"
                   << "Azimuth MICA (deg): " << sunCoordinates_MICA.dAzimuth << ", \n"
-                  << "Azimuth PSA+ (deg): " << sunCoordinates_sunpos.dAzimuth << ", \n"
-                  << "Zenith Angle Error (arc seconds): " << (sunCoordinates_sunpos.dZenithAngle - sunCoordinates_MICA.dZenithAngle)*3600.0 << ", \n"
-                  << "Azimuth Error (arc seconds): " << (sunCoordinates_sunpos.dAzimuth - sunCoordinates_MICA.dAzimuth)*3600.0 << ", \n"
+                  << "Azimuth PSA+ (deg): " << sunCoordinates_sunpos.dAzimuth/rad << ", \n"
+                  << "Zenith Angle Error (arc seconds): " << (sunCoordinates_sunpos.dZenithAngle/rad - sunCoordinates_MICA.dZenithAngle)*3600.0 << ", \n"
+                  << "Azimuth Error (arc seconds): " << (sunCoordinates_sunpos.dAzimuth/rad - sunCoordinates_MICA.dAzimuth)*3600.0 << ", \n"
                   << "----------------------------------------------- \n";
     }
 
@@ -86,11 +86,11 @@ int main()
                << time.dMinutes << ","
                << time.dSeconds << ","
                << sunCoordinates_MICA.dZenithAngle << ","
-               << sunCoordinates_sunpos.dZenithAngle << ","
+               << sunCoordinates_sunpos.dZenithAngle/rad << ","
                << sunCoordinates_MICA.dAzimuth << ","
-               << sunCoordinates_sunpos.dAzimuth << ","
-               << (sunCoordinates_sunpos.dZenithAngle - sunCoordinates_MICA.dZenithAngle)*3600.0 <<","
-               << (sunCoordinates_sunpos.dAzimuth - sunCoordinates_MICA.dAzimuth)*3600.0 << "\n";
+               << sunCoordinates_sunpos.dAzimuth/rad << ","
+               << (sunCoordinates_sunpos.dZenithAngle/rad - sunCoordinates_MICA.dZenithAngle)*3600.0 <<","
+               << (sunCoordinates_sunpos.dAzimuth/rad - sunCoordinates_MICA.dAzimuth)*3600.0 << "\n";
     }
 
     // Close file
