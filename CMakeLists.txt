@@ -24,5 +24,13 @@ target_include_directories(sunpos
 # ------------------------------------------------------------------------------------
 # Optional test executable
 # ------------------------------------------------------------------------------------
-add_executable(TestOfUpdatedSunPos src/main.cpp)
+add_executable(TestOfUpdatedSunPos apps/test/main.cpp)
 target_link_libraries(TestOfUpdatedSunPos PRIVATE sunpos)
+target_include_directories(TestOfUpdatedSunPos PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include)
+
+# ------------------------------------------------------------------------------------
+# CLI executable
+# ------------------------------------------------------------------------------------
+add_executable(sunpos_cli apps/cli/main.cpp)
+target_link_libraries(sunpos_cli PRIVATE sunpos)
+target_include_directories(sunpos_cli PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include)
